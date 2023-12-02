@@ -57,7 +57,7 @@ function App() {
         <div className="source-container">
           <h2>Source: </h2>
           <div className="sources">
-            <a href="https://www.wikipedia.org/"> wikipedia</a>
+            <a href="https://www.wikipedia.org/">https://www.wikipedia.org</a>
           </div>
         </div>
 
