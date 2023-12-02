@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./styles/App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState("");
 
+  const handleText = (e) => {
+    console.log(e.target.value);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="full-container">
+      <div className="header">
+        <h2>Overloaded</h2>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="main">
+        <h1 className="main-text">Detect fake information</h1>
+        <div className="input-container">
+          <div className="input1">
+            <textarea
+              placeholder="enter text"
+              onChange={(e) => handleText(e)}
+              className="input"
+            />
+            <button className="x-button1">ⓧ</button>
+          </div>
+
+          <div className="input2">
+            <textarea placeholder="output" className="output" disabled />
+            <button className="x-button2">ⓧ</button>
+          </div>
+        </div>
+        <div className="source-container">
+          <h2>Sources</h2>
+          <div className="sources">
+            <a href="https://www.wikipedia.org/">wikipedia</a>
+            <a href="https://www.wikipedia.org/">wikipedia</a>
+          </div>
+        </div>
+
+        <div className="last-info-container">
+          <h2>Most Popular</h2>
+          <div className="info-card-container">
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
