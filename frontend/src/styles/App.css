@@ -36,9 +36,9 @@
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  /* background-color: #397ED9;     */
-  padding-top: 40px;
-  padding-bottom: 30px;
+  margin-top: 30px;
+  /* padding-top: 40px; */
+  /* padding-bottom: 30px; */
   /* background: rgb(251, 251, 251);
   background: linear-gradient(
     0deg,
@@ -49,6 +49,7 @@
 .main-text {
   color: white;
   width: 80%;
+  text-align: center;
 }
 .input-container {
   width: 80%;
@@ -110,12 +111,26 @@
   outline: none;
   cursor: pointer;
 }
+.check-button {
+  background-color: #397ed9;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
 .source-container {
   padding-top: 50px;
   width: 80%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 .source-container h2 {
   color: white;
@@ -124,30 +139,28 @@
 .source-container a {
   color: black;
   text-decoration: none;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   font-size: 18px;
   font-weight: bold;
 }
 .sources {
-  padding-top: 10px;
+  padding-top: 4px;
+  padding-left: 4px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   /* width: 50%; */
   gap: 10px;
-  /* justify-content: center; */
+  justify-content: center;
+  align-items: center;
 }
-.seperator {
-  height: 10px;
-  width: "100%";
-  background-color: black;
-}
+
 .last-info-container {
   width: 80%;
   padding: 50px;
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 50px;
   box-sizing: border-box;
 }
 .last-info-container h2 {
@@ -165,14 +178,15 @@
   justify-content: center;
 }
 .info-card {
-  width: 200px;
-  height: 100px;
+  width: 230px;
+  height: 120px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  border-radius: 10px;
 }
 .info-card h2 {
   font-size: 17px;

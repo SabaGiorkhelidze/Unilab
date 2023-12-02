@@ -3,9 +3,11 @@ import "./styles/App.css";
 
 function App() {
   const [text, setText] = useState("");
+  const [checkedText, setCheckedText] = useState({});
 
-  const handleText = (e) => {
-    console.log(e.target.value);
+  const CheckInformation = () => {
+    setCheckedText(text);
+    // console.log(text);
   };
   return (
     <div className="full-container">
@@ -18,28 +20,58 @@ function App() {
           <div className="input1">
             <textarea
               placeholder="enter text"
-              onChange={(e) => handleText(e)}
+              onChange={(e) => setText(e.target.value)}
               className="input"
-            />
-            <button className="x-button1">ⓧ</button>
+              value={text}
+            >
+              {text}
+            </textarea>
+            <button
+              className="x-button1"
+              onClick={() => {
+                setText("");
+                setCheckedText("");
+              }}
+            >
+              ⓧ
+            </button>
           </div>
 
           <div className="input2">
-            <textarea placeholder="output" className="output" disabled />
-            <button className="x-button2">ⓧ</button>
+            <textarea
+              placeholder="output"
+              className="output"
+              value={checkedText.length > 0 ? checkedText : ""}
+              disabled
+            >
+              {setCheckedText}
+            </textarea>
+            <button className="x-button2" onClick={() => setCheckedText("")}>
+              ⓧ
+            </button>
           </div>
         </div>
+        <button className="check-button" onClick={() => CheckInformation()}>
+          Check
+        </button>
         <div className="source-container">
-          <h2>Sources</h2>
+          <h2>Source: </h2>
           <div className="sources">
-            <a href="https://www.wikipedia.org/">wikipedia</a>
-            <a href="https://www.wikipedia.org/">wikipedia</a>
+            <a href="https://www.wikipedia.org/"> wikipedia</a>
           </div>
         </div>
 
         <div className="last-info-container">
           <h2>Most Popular</h2>
           <div className="info-card-container">
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
             <div className="info-card">
               <h3>Winston Churchill</h3>
               <p>Sir Winston Leonard Spencer Churchill</p>
