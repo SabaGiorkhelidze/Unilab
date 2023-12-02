@@ -14,4 +14,4 @@ db = SQLAlchemy(app)
 # CORS(app, supports_credentials=True)
 
 
-from backend import routes
+from server import routes
