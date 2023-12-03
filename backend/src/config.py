@@ -5,6 +5,6 @@ from datetime import timedelta
 class Config(object):
     BASE_DIRECTORY = path.abspath(path.dirname(__file__))
     SECRET_KEY = 'b758cc27bb155b752aeac59960810d18'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+    SQLALCHEMY_DATABASE_URI = f'sqlite:///{BASE_DIRECTORY}/database.sqlite'
     SESSION_TYPE = "filesystem"
     PERMANENT_SESSION_LIFETIME = timedelta(days=1)
