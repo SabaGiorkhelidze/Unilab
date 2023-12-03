@@ -58,20 +58,20 @@ function App() {
             >
               {setCheckedText}
             </textarea>
-                        <button className="x-button2" onClick={() => setCheckedText("")}>
-                            ⓧ
-                        </button>
-                    </div>
-                </div>
-                <button className="check-button" onClick={() => CheckInformation()}>
-                    Check
-                </button>
-                <div className="source-container">
-                    <h2>Source: </h2>
-                    <div className="sources">
-                        <a href="https://www.wikipedia.org/"> wikipedia</a>
-                    </div>
-                </div>
+            <button className="x-button2" onClick={() => setCheckedText("")}>
+              ⓧ
+            </button>
+          </div>
+        </div>
+        <button className="check-button" onClick={() => CheckInformation()}>
+          Check
+        </button>
+        <div className="source-container">
+          <h2>Source: </h2>
+          <div className="sources">
+            <a href="https://www.wikipedia.org/">https://www.wikipedia.org</a>
+          </div>
+        </div>
 
                 <div className="last-info-container">
                     <h2>Most Popular</h2>
