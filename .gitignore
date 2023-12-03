@@ -2,3 +2,4 @@
 /.idea
 /backend/instance
 *.sqlite
+*/__pycache__
