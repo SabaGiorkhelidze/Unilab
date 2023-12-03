@@ -1,64 +1,61 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "./styles/App.css";
 import axios from "axios";
 
 function App() {
-    const [text, setText] = useState("");
-    const [checkedText, setCheckedText] = useState({});
+  const [text, setText] = useState({ data: "" });
+  const [checkedText, setCheckedText] = useState({ result: "" });
 
-    const CheckInformation = () => {
-        setCheckedText(text);
-        // console.log(text);
-    };
-
-    useEffect(() => {
+  const CheckInformation = () => {
     axios
-        .get("/api/home")
-        .then((response) => {
-            setCheckedText(response.data.header);
-        })
-        .catch((error) => console.log(error));
-}, []);
+      .post("/api/home", text)
+      .then((response) => {
+        setCheckedText({ result: response.data.result });
+      })
+      .catch((error) => console.log(error));
+  };
 
-    console.log(checkedText)
-    return (
-        <div className="full-container">
-            <div className="header">
-                <h2>Overloaded</h2>
-            </div>
-            <div className="main">
-                <h1 className="main-text">Detect fake information</h1>
-                <div className="input-container">
-                    <div className="input1">
+  return (
+    <div className="full-container">
+      <div className="header">
+        <h2>Overloaded</h2>
+      </div>
+      <div className="main">
+        <h1 className="main-text">Detect fake information</h1>
+        <div className="input-container">
+          <div className="input1">
             <textarea
-                placeholder="enter text"
-                onChange={(e) => setText(e.target.value)}
-                className="input"
-                value={text}
+              placeholder="enter text"
+              onChange={(e) => setText({ data: e.target.value })}
+              className="input"
+              value={text.data}
             >
-              {text}
+              {text.data}
             </textarea>
-                        <button
-                            className="x-button1"
-                            onClick={() => {
-                                setText("");
-                                setCheckedText("");
-                            }}
-                        >
-                            ⓧ
-                        </button>
-                    </div>
+            <button
+              className="x-button1"
+              onClick={() => {
+                setText({ data: "" });
+                setCheckedText({ result: "" });
+              }}
+            >
+              ⓧ
+            </button>
+          </div>
 
-                    <div className="input2">
+          <div className="input2">
             <textarea
-                placeholder="output"
-                className="output"
-                value={checkedText.length > 0 ? checkedText : ""}
-                disabled
+              placeholder="output"
+              className="output"
+              value={checkedText?.result?.length > 0 ? checkedText.result : ""}
+              disabled
             >
-              {setCheckedText}
+              {checkedText.result}
             </textarea>
-            <button className="x-button2" onClick={() => setCheckedText("")}>
+            <button
+              className="x-button2"
+              onClick={() => setCheckedText({ result: "" })}
+            >
               ⓧ
             </button>
           </div>
@@ -73,42 +70,42 @@ function App() {
           </div>
         </div>
 
-                <div className="last-info-container">
-                    <h2>Most Popular</h2>
-                    <div className="info-card-container">
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                        <div className="info-card">
-                            <h3>Winston Churchill</h3>
-                            <p>Sir Winston Leonard Spencer Churchill</p>
-                        </div>
-                    </div>
-                </div>
+        <div className="last-info-container">
+          <h2>Most Popular</h2>
+          <div className="info-card-container">
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
             </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+            <div className="info-card">
+              <h3>Winston Churchill</h3>
+              <p>Sir Winston Leonard Spencer Churchill</p>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default App;
